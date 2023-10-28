@@ -8,7 +8,7 @@
 
 int TakeNumber(string message)
 {
-    System.Console.WriteLine($"Enter {message}");
+    Console.WriteLine($"Enter {message}");
     if (int.TryParse(Console.ReadLine(), out int Number)) return Number;
     else
     {
