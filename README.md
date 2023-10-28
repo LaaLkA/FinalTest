@@ -50,13 +50,10 @@ string[] TakeArray1(int number, string[] array)
 void DoArray2(string[] array1, string[] array2)
 {
     int count = 0;
-    for (int i = 0; i < array1.Length; i++)
+    for (int i = 0; i < array2.Length; i++)
     {
-        if (i < array2.Length)
-        {
-            array2[count] = array1[i];
-            count++;
-        }
+        array2[count] = array1[i];
+        count++;
     }
 }
 ```
