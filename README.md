@@ -49,11 +49,9 @@ string[] TakeArray1(int number, string[] array)
 ```C#
 void DoArray2(string[] array1, string[] array2)
 {
-    int count = 0;
     for (int i = 0; i < array2.Length; i++)
     {
-        array2[count] = array1[i];
-        count++;
+        array2[i] = array1[i];
     }
 }
 ```
