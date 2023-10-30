@@ -16,12 +16,25 @@ int TakeNumber(string message)
         return TakeNumber(message);
     }
 }
-void DoArray2(string[] array1, string[] array2)
+string[] DoArray2(string[] array1)
 {
-    for (int i = 0; i < array2.Length; i++)
+    int num = 0;
+    for (int i = 0; i < array1.Length; i++)
     {
-        array2[i] = array1[i];
+        if (array1[i].Length <= 3) num++;
     }
+    
+    int count = 0;
+    string[] array2 = new string[num];
+    for (int j = 0; j < array1.Length; j++)
+    {
+        if (array1[j].Length <= 3)
+        {
+            array2[count] = array1[j];
+            count++;
+        }
+    }
+    return array2;
 }
 void PrintArray(string[] array, string message)
 {
@@ -35,10 +48,10 @@ void PrintArray(string[] array, string message)
     Console.Write("]");
     Console.WriteLine();
 }
-string[] TakeArray1(int number, string[] array)
+string[] TakeArray1(string[] array)
 {
     string temp;
-    for (int i = 0; i < number; i++)
+    for (int i = 0; i < array.Length; i++)
     {
         Console.WriteLine($"Введите {i + 1}е значение начального массива");
         temp = Console.ReadLine() ?? "";
@@ -49,13 +62,7 @@ string[] TakeArray1(int number, string[] array)
 
 Console.Clear();
 
-Random rand = new Random();
-
-int number = TakeNumber("длину начального массива");
-string[] array1 = new string[number];
-string[] array2 = new string[rand.Next(1, 4)];
-
-TakeArray1(number, array1);
-DoArray2(array1, array2);
+string[] array1 = new string[TakeNumber("длину начального массива")];
+TakeArray1(array1);
 PrintArray(array1, "Исходный");
-PrintArray(array2, "Полученный из исходного");
+PrintArray(DoArray2(array1), "Полученный из исходного");
